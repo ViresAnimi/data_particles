@@ -1,0 +1,26 @@
+para root
+root -l <nombre de archivo>
+h_wide->Draw()
+new TBrowser() se abre el esquema
+
+https://pdg.web.cern.ch/pdg/2020/mcdata/mc_particle_id_contents.html
+importante
+t->print()
+t->Scan() muestra los eventos y las partìculas
+t->Scan("E:px:py:pz:pid") muestra la energìa, el momento y el PID que es el identificador de la partìcula desde el librito de todas las partìculas en la PDG. Variables crudas, pero podemos hacer
+t->Scan("E:px:py:pz:pid:sqrt(E*E-px*px-py*py-pz*pz)") masa invariante
+A veces queremos saber que la masa invariante en què decae y para ello debemos sumas las masas invariantes de los decaimientos pero para ello debemos programar de verdad
+
+t->Draw("E","pid==211 && E>500"), muestra la energìa de los piones, que ademàs tenga energìa mayor a 500, en el eje Y tienes los nùmero de partìculas seleccionadas con esa energìa
+
+t->Draw("px:py","","Blue") todos con eje px y py
+t->Draw("px:py","","colz")
+
+TH2F h2("h2","Titulo;eje x;py (GeV)",500,-20,20,500,-20,10)
+t->Draw("py:px>>h2","","colz") Aquì bàsicamente creamos un nuevo grid vacìo que contiene 500x500 lineas entre -20 y 20 y entre -10 y 20, en el momento en el que llenamos con py:px>>h2 llevamos la informaciòn de py:px a h2
+
+root.cern.ch todo lo de root
+
+root -l -b- -q read_tree.cxx para ejecutar el archivo ejecutable de root que estoy creando. Despuès de crearlo hay que compilarlo
+
+THstack
